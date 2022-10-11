@@ -1,0 +1,124 @@
+<div id="my-content" class="my-content">
+  <app-header></app-header>
+</div>
+
+<div class="clearfix">
+  <div class="people-list">
+    <div class="p-4 mb-2 bg-info text-white">
+      USERS
+    </div>
+    <ul class="list">
+      <div *ngFor="let items of users">
+        <li class="clearfix" *ngIf="items.userName!==self" (click)="fire(items.userName)">
+          <div *ngIf="items.noOfMessages &&  items.noOfMessages!==0" class="messages">
+            <div class="badge">
+              <div class="message-count"> {{items.noOfMessages}}</div>
+            </div>
+          </div>
+          <img class=" border-radius" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg"
+            alt="avatar" />
+          <div class="about">
+            <div class="name">{{items.userName}}</div>
+            <div class="status">
+              <i class="fa fa-circle online"></i>
+            </div>
+          </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+
+  <div class="chat">
+    <div class="chat-header clearfix">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+      <div class="chat-about">
+        <div class="chat-with">{{chatWith}}</div>
+        <div class="chat-num-messages">already 1 902 messages</div>
+      </div>
+      <i class="fa fa-star"></i>
+    </div> <!-- end chat-header -->
+    <div class="chat-history">
+      <ul class="uldisabled">
+        <li *ngFor="let conversationList of listBOX" class="clearfix">
+          <div *ngIf="conversationList.sender===chatWith">
+            <div *ngFor="let conversationMsg of conversationList.msgList">
+              <div
+                [ngClass]="{'message-data align-right':conversationMsg.of===self,'message-data':conversationMsg.of!==self }">
+                <span class="message-data-time">10:10 AM, Today</span> &nbsp; &nbsp;
+                <span *ngIf="conversationMsg.of===self" class="message-data-name">{{self}}</span> <i
+                  class="fa fa-circle me"></i>
+                <span *ngIf="conversationMsg.of!==self" class="message-data-name">{{conversationMsg.of}}</span> <i
+                  class="fa fa-circle me"></i>
+              </div>
+              <div class="message"
+                [ngClass]="{'other-message float-right':conversationMsg.of!==self,'my-message':conversationMsg.of===self}">
+                {{conversationMsg.message}}
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="chat-message clearfix">
+        <textarea [(ngModel)]="newMessage" name="message-to-send" id="message-to-send" placeholder="Type your message"
+          rows="3"></textarea>
+        <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+        <i class="fa fa-file-image-o"></i>
+        <button (click)="sendMessage()">Send</button>
+      </div> <!-- end chat-message -->
+    </div> <!-- end chat -->
+  </div> <!-- end container -->
+
+
+  <script id="message-template" type="text/x-handlebars-template">
+    <li class="clearfix">
+      <div class="message-data align-right">
+        <span class="message-data-time" >{{time}}, Today</span> &nbsp; &nbsp;
+        <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
+      </div>
+      <div class="message other-message float-right">
+        {{messageOutput}}
+      </div>
+    </li>
+</script>
+
+  <script id="message-response-template" type="text/x-handlebars-template">
+    <li>
+      <div class="message-data">
+        <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
+        <span class="message-data-time">{{time}}, Today</span>
+      </div>
+      <div class="message my-message">
+        {{response}}
+      </div>
+    </li>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 
+    <form #loginForm=ngForm>
+    <div>
+      
+    
+    <div >
+    
+      <input type="text" class="form-control" [(ngModel)]="sendTo" name="categoryType" required>
+      <textarea autocomplete="off" placeholder="Type Your Message..." name="newmessage" [(ngModel)]="newmessage" required></textarea>
+      <button class="btn btn-primary" (click)="sendMessage()" [disabled]="!loginForm.valid">Send</button>
+    </div>
+    </div>
+    
+    </form> -->
