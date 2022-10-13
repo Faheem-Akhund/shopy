@@ -1,152 +1,107 @@
 <app-header></app-header>
-<!-- <div  *ngFor="let items of object">
-    
-    <h1>{{items.status ?? ''}}</h1>
-    <h1>{{items.id ?? ''}}</h1>
-    <h1>{{items.product?.price}}</h1>
-    <h1>{{items.product?.productName ?? 'N/a'}}</h1>
-</div> -->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-image">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Price</th>
+            <th scope="col">Purchased Status</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let items of object">
+          <tr>
+            <th scope="row">{{items.id ?? 'N/a'}}</th>
+            <td class="w-25">
+              <img src={{items.product?.imgsrc}} class="img-fluid img-thumbnail sizeimg" alt="Sheep">
+            </td>
+            <td>{{items.product?.productName ?? 'N/a'}}</td>
+            <td>{{items.status ?? 'N/a'}}</td>
+            <td>{{items.product?.price?? 'N/a'}}</td>
+            <td>{{items.paymentStatus?? 'N/a'}}</td>
 
+            <!-- <pre>{{items |json }} </pre> -->
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <th>TOTAL</th>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <th>
+              {{total}} Rs
+            </th>
+            <td>
+              <button *ngIf="newCategory==true" type="button" class="btn btn-primary"
+                (click)="open(content)">PURCHASE</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-    <!-- <div class="card"  *ngFor="let items of object">
-        <img src={{items.product?.imgsrc}} alt="Denim Jeans" style="width:100%">
-        <h1>{{items.product?.productName ?? 'N/a'}}</h1>
-        <h1>{{items.id ?? 'N/a'}}</h1>
-        <h1>{{items.status ?? 'N/a'}}</h1>
-     
-        <p><button>Add to Cart</button></p>
-      </div> -->
-
-
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-              <table class="table table-image">
-                <thead>
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Purchased Status</th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let items of object">
-                  <tr>
-                    <th scope="row">{{items.id ?? 'N/a'}}</th>
-                    <td class="w-25">
-                        <img src={{items.product?.imgsrc}} class="img-fluid img-thumbnail sizeimg" alt="Sheep">
-                    </td>
-                    <td>{{items.product?.productName ?? 'N/a'}}</td>
-                    <td>{{items.status ?? 'N/a'}}</td>
-                    <td>{{items.product?.price?? 'N/a'}}</td>
-                    <td>{{items.paymentStatus?? 'N/a'}}</td>
-                    
-                   <!-- <pre>{{items |json }} </pre> -->
-                  </tr> 
-                </tbody>
-
-                <tbody >
-                         
-                    <tr>
-                      <th>TOTAL</th> 
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <th>
-                      {{total}} Rs
-                    </th>
-                    <td>
-                      
-                      <button *ngIf="newCategory==true"  type="button" class="btn btn-primary" (click)="open(content)">PURCHASE</button>
-                    </td>
-                  </tr>
-                
-                </tbody>
-
-                <!-- <p>{{total}}</p>  -->
-              </table>  
+<ng-template #content let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">PaymentModal</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body ">
+      <form #ibftaddressForm="ngForm">
+        <div *ngIf="newAddress==true">
+          <div class="form-group  pt-2">
+            <label for="exampleInputEmail1">CITY :</label>
+            <input list="brow" class="form-control" [(ngModel)]="address" name="categoryType" required>
+            <datalist id="brow" required>
+              <option value="HYDERABAD">
+              <option value="KARACHI">
+              <option value="LAHORE">
+              <option value="FAISALABAD">
+              <option value="ISLAMABAD">
+            </datalist>
+          </div>
+          <div class="form-group  pt-2">
+            <label for="exampleInputPassword1">TOWN :</label>
+            <input type="text" class="form-control" [(ngModel)]="town" name="houseNO" required>
+          </div>
+          <div class="form-group  pt-2">
+            <label for="exampleInputPassword1">HOUSE# :</label>
+            <input type="text" class="form-control" [(ngModel)]="houseNO" name="town" required>
           </div>
         </div>
-      </div>
-
-      <!-- <td> <button class="btn center" (click)="open(content)" >View cart</button></td> -->
-      <ng-template #content let-modal>
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">PaymentModal</h4>
-            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-          </div>
-          <div class="modal-body ">     
-                              <form  #ibftaddressForm="ngForm">     
-
-
-                                <div *ngIf="newAddress==true">
-
-                                <div class="form-group  pt-2">                           
-                                  <label for="exampleInputEmail1">CITY :</label>
-                                  <input list="brow" class="form-control" [(ngModel)]="address" name="categoryType" required>
-                                  <datalist id="brow" required>
-                                    <option value="HYDERABAD">
-                                    <option value="KARACHI">
-                                    <option value="LAHORE">
-                                    <option value="FAISALABAD">
-                                    <option value="ISLAMABAD">
-                                  </datalist>                               
-                                </div>    
-
-                                <div class="form-group  pt-2">
-                                  <label for="exampleInputPassword1">TOWN :</label>                         
-                                  <input type="text" class="form-control" [(ngModel)]="town" name="houseNO" required>                            
-                                </div>  
-
-                                <div class="form-group  pt-2">
-                                  <label for="exampleInputPassword1">HOUSE# :</label>                         
-                                  <input type="text" class="form-control" [(ngModel)]="houseNO" name="town" required>                           
-                                </div>
-
-                                </div>
-
-                                <div *ngIf="newAddress==false" class="listitmes">
-                                  <div  *ngFor="let items of alladdresses" >
-                                     <input type="radio"  [(ngModel)]="addressId" value={{items.id}} name="addressId">
-                                    
-                                       <label class="labeladdresscity" for="html">{{items.city}}</label>
-                                       <label class="labeladdress" for="html">,</label>
-                                       <label class="labeladdress" for="html">{{items.town}}</label>
-                                       <label class="labeladdress" for="html">,</label>
-                                       <label class="labeladdress" for="html">{{items.houseNo}}</label>
-
-                                   
-                                     <br>
-                                    
-
-                                  </div>
-
-                                </div>
-
-                                <div class="addresscheckbox">
-                                  ADD NEW ADDRESS: <input type="checkbox" id="myCheck" (click)="disable()">
-                                </div>
- 
-
-                                <div class="form-group  pt-2">
-                                  <label for="exampleInputPassword1">Upload IMAGE :</label>                         
-                                  <input type="file" class="form-control" (change)="onImageUpload($event)" required>                             
-                                </div>
-
-                               
-                                <div class="form-group pt-3">                  
-                                  <input type="button" class="btn btn-primary webkit" [disabled]="ibftaddressForm.form.invalid" (click)="[imageUploadAction() ,modal.dismiss('Cross click')]" value="Upload Image" >                                                  
-                                </div>
-                                
-                            </form>
-                         
-           
+        <div *ngIf="newAddress==false" class="listitmes">
+          <div *ngFor="let items of alladdresses">
+            <input type="radio" [(ngModel)]="addressId" value={{items.id}} name="addressId">
+            <label class="labeladdresscity" for="html">{{items.city}}</label>
+            <label class="labeladdress" for="html">,</label>
+            <label class="labeladdress" for="html">{{items.town}}</label>
+            <label class="labeladdress" for="html">,</label>
+            <label class="labeladdress" for="html">{{items.houseNo}}</label>
+            <br>
           </div>
         </div>
-      </ng-template>
+        <div class="addresscheckbox">
+          ADD NEW ADDRESS: <input type="checkbox" id="myCheck" (click)="disable()">
+        </div>
+        <div class="form-group  pt-2">
+          <label for="exampleInputPassword1">Upload IMAGE :</label>
+          <input type="file" class="form-control" (change)="onImageUpload($event)" required>
+        </div>
+        <div class="form-group pt-3">
+          <input type="button" class="btn btn-primary webkit" [disabled]="ibftaddressForm.form.invalid"
+            (click)="[imageUploadAction() ,modal.dismiss('Cross click')]" value="Upload Image">
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>

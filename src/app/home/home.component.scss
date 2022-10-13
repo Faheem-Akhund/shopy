@@ -5,37 +5,25 @@
   font-family: arial;
   margin: 1%;
 }
-
-.price {
-  color: grey;
-  font-size: 22px;
-}
-
 .card button {
   border: none;
   outline: 0;
   padding: 12px;
   color: white;
- 
   text-align: center;
   cursor: pointer;
   width: 100%;
   font-size: 14px;
 }
-
 .card button:hover {
   opacity: 0.7;
 }
-.background
-{
+.background {
   background-color: white;
 }
-
-.itemscheck
-{
+.itemscheck {
   margin-left: calc(9.5 * var(--bs-gutter-x));
 }
-
 .sidebar {
   margin: 0;
   padding: 0;
@@ -45,100 +33,50 @@
   height: 100%;
   overflow: auto;
 }
-
 .sidebar a {
   display: block;
   color: black;
   padding: 16px;
   text-decoration: none;
 }
- 
 .sidebar a.active {
   background-color: #04AA6D;
   color: white;
 }
-
 .sidebar a:hover:not(.active) {
   background-color: #555;
   color: white;
 }
-
-div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
-}
-
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
-}
-
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* card */
 .dress-card-img-top {
-  width:100%;
+  width: 100%;
   border-radius: 7px 7px 0 0;
 }
-
 .dress-card-body {
-  padding:1rem;
+  padding: 1rem;
   background: #fff;
   border-radius: 0 0 7px 7px;
 }
-
 .dress-card-title {
   line-height: 0.5rem;
 }
-
 .dress-card-crossed {
   text-decoration: line-through;
 }
-
 .dress-card-price {
   font-size: 1rem;
   font-weight: bold;
 }
-
 .dress-card-off {
   color: #E06C9F;
 }
-
 .dress-card-para {
   margin-bottom: 0.2rem;
   font-size: 1.0rem;
   margin-bottom: 0rem;
 }
-
 .dress-card {
   border-radius: 14px;
 }
-
 .dress-card-heart {
   font-size: 1em;
   color: #DB2763;
@@ -146,9 +84,8 @@ div.content {
   position: absolute;
   left: 4px;
   top: 0px;
-  
-}
 
+}
 .surprise-bubble {
   position: absolute;
   bottom: 12rem;
@@ -162,7 +99,6 @@ div.content {
   -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-
 .surprise-bubble a {
   font-size: 0.65em;
   text-transform: uppercase;
@@ -180,7 +116,6 @@ div.content {
   -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-
 .surprise-bubble:hover {
   border-radius: 999rem;
   padding: 1rem;
@@ -191,7 +126,6 @@ div.content {
   -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-
 .surprise-bubble:hover a {
   opacity: 1;
   -webkit-transition-delay: 2s;
@@ -200,7 +134,6 @@ div.content {
   -webkit-transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-
 .card-button {
   text-align: center;
   text-transform: uppercase;
@@ -210,29 +143,18 @@ div.content {
 .card-button a {
   text-decoration: none;
 }
-
 .card-button-inner {
   padding: 10px;
   border-radius: 3px;
 }
-
 .bag-button {
   background: #E06C9F;
   color: white;
 }
-
-.bag-button :hover{
+.bag-button :hover {
   background: #2e49c0;
 }
-
 .wish-button {
   border: 1px solid #E06C9F;
   color: #E06C9F;
-}
-.incenter{
-  padding-left: calc(var(--bs-gutter-x) * 4.5);
-}
-.itmescenter
-{
-  width: 30%;
 }

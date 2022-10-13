@@ -17,21 +17,16 @@ export class DiscardedComponent implements OnInit {
     this.getDiscardedItems();
   }
   getDiscardedItems() {
- 
     this.auth.getDiscardedItems().toPromise().then(res => {
-      if(res.code==1)
-      {
+      if (res.code == 1) {
         this.object = res.object;
       }
-    
     });
-
   }
 }
-
 interface AuthModel {
-  readonly id: string | number |null;
+  readonly id: string | number | null;
   status: string | null;
-  price: string| null | number;
-  product: { productName: string ,imgsrc :string  } | null;
+  price: string | null | number;
+  product: { productName: string, imgsrc: string } | null;
 }

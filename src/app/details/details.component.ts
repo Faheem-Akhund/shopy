@@ -11,33 +11,21 @@ import { DetailService } from '../services/details/detail.service';
 export class DetailsComponent implements OnInit {
 
   constructor(private auth: DetailService, private router: Router) { }
-
-
-
   object: AuthModel[] = [];
-
-
   ngOnInit(): void {
     this.fix();
   }
-
   fix() {
- 
     this.auth.getUserDetails('pending').toPromise().then(res => {
-
-      if(res.code==1)
-      {
+      if (res.code == 1) {
         this.object = res.object;
       }
     });
-
   }
 }
-  
-
 interface AuthModel {
-  readonly id: string | number |null;
+  readonly id: string | number | null;
   status: string | null;
-  price: string| null | number;
-  product: { productName: string ,imgsrc :string  } | null;
+  price: string | null | number;
+  product: { productName: string, imgsrc: string } | null;
 }

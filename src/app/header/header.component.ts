@@ -10,80 +10,48 @@ import { NotificationsService } from '../services/notification/notifications.ser
 })
 export class HeaderComponent implements OnInit {
 
-  user=localStorage.getItem('user')
+  user = localStorage.getItem('user')
   constructor(private auth: NotificationsService) { }
-  showNotification=true;
-  newCategory=false;
-  noticications:NOTIFICATIONS[]=[]
+  showNotification = true;
+  newCategory = false;
+  noticications: NOTIFICATIONS[] = []
 
-  notificationcount=0;
+  notificationcount = 0;
 
   ngOnInit(): void {
     this.viewImage();
-    
-   
   }
-
-
   disable() {
-    this.newCategory=! this.newCategory
-    
+    this.newCategory = !this.newCategory
   }
-
-  readNotification(notId:number,id:number)
-  {
-    
-    this.noticications[notId].received=true;
-
-    if( this.notificationcount>=1)
-    {
-      this.notificationcount=this.notificationcount-1;
+  readNotification(notId: number, id: number) {
+    this.noticications[notId].received = true;
+    if (this.notificationcount >= 1) {
+      this.notificationcount = this.notificationcount - 1;
     }
-  
-      this.auth.receiveNotification(id).toPromise().then(res=> {
+    this.auth.receiveNotification(id).toPromise().then(res => {
+      if (res.code == 1) {
 
-        if(res.code==1)
-        {
-
-        }
-
-        
-      });
+      }
+    });
   }
-
-
   viewImage() {
     this.auth.userNotifications().toPromise().then(res => {
       this.noticications = res.object;
-      
-
-        this.notificationcount=this.noticications.length
-
+      this.notificationcount = this.noticications.length
       for (let i = 0; i < this.noticications.length; i++) {
-
-        if(this.noticications[i].received===true)
-        {
-          this.notificationcount=this.notificationcount-1;
-        
+        if (this.noticications[i].received === true) {
+          this.notificationcount = this.notificationcount - 1;
         }
       }
-
     });
-
-
-  
-  
-
-
+  }
 }
 
-
-}
-
-interface NOTIFICATIONS{
+interface NOTIFICATIONS {
   id: number;
-  received :boolean;
-  notificationStatus:string;
-  time:string;
+  received: boolean;
+  notificationStatus: string;
+  time: string;
 
 }

@@ -1,50 +1,30 @@
 <app-header></app-header>
-
 <div class="background">
-
-  <div class="sidebar" >
+  <div class="sidebar">
     <p class="p-4">PRODUCTS</p>
     <div *ngFor="let items of categories">
-    <a (click)="getProductsByCategory(items.categoryType)">{{items.categoryType}}</a>
+      <a (click)="getProductsByCategory(items.categoryType)">{{items.categoryType}}</a>
+    </div>
   </div>
-  </div>
-
-    
-  <!-- <div class="sidebar">
-    <p class="p-4">PRODUCTS</p>
-    <a (click)="getProductsByCategory('DRESS')">DRESSES</a>
-    <a (click)="getProductsByCategory('SHOES')">SHOES</a>
-  </div> -->
- 
-<div class="row itemscheck p-3 justify-content-md-center">
-
-  
-  <div class="card"  *ngFor="let items of object">
-    <!-- <img src={{items.imgsrc}} alt="Denim Jeans" style="width:100%">
-    <p  class="price">{{items.price?? 'N/a'}} Rs</p>
-    <p  class="price">{{items.id}} Rs</p>
-    <p><button class="btn center" (click)="addToCart(items.id)" >add To Cart</button></p> -->
-    <div class="dress-card" >
-      <div class="dress-card-head">
-        <img class="dress-card-img-top" src={{items.imgsrc}} alt="">
-        <div class="surprise-bubble"><span class="dress-card-heart">
-            <i class="fas fa-heart"></i>
-          </span><a href="#"> <span>More</span></a></div>
-      </div>
-      <div class="dress-card-body">
-        <h4 class="dress-card-title">{{items.productName}}</h4>
-        <p class="dress-card-para">Womans printed clothing</p>
-        <p class="dress-card-para"><span class="dress-card-price">Rs.{{items.price}} &ensp;</span><span class="dress-card-crossed">Rs.2099</span><span class="dress-card-off">&ensp;(60% OFF)</span></p>
-        <div class="row">
-          <div class="col-md-6 card-button"><button (click)="[addToCart(items.id)]" class="card-button-inner bag-button">ADD TO BAG</button></div>
-          <div class="col-md-6 card-button"><button class="card-button-inner wish-button">Whishlist</button></div>
+  <div class="row itemscheck p-3 justify-content-md-center">
+    <div class="card" *ngFor="let items of object">
+      <div class="dress-card">
+        <div class="dress-card-head">
+          <img class="dress-card-img-top" src={{items.imgsrc}} alt="">
+          <div class="surprise-bubble"><span class="dress-card-heart">
+              <i class="fas fa-heart"></i>
+            </span><a href="#"> <span>More</span></a></div>
+        </div>
+        <div class="dress-card-body">
+          <h4 class="dress-card-title">{{items.productName}}</h4>
+          <p class="dress-card-para">Womans printed clothing</p>
+          <p class="dress-card-para"><span class="dress-card-price">Rs.{{items.price}} &ensp;</span><span
+              class="dress-card-crossed">Rs.2099</span><span class="dress-card-off">&ensp;(60% OFF)</span></p>
+          <div class="row">
+            <div class="col-md-6 card-button"><button (click)="[addToCart(items.id)]"
+                class="card-button-inner bag-button">ADD TO BAG</button></div>
+            <div class="col-md-6 card-button"><button class="card-button-inner wish-button">Whishlist</button></div>
+          </div>
         </div>
       </div>
-  </div>
-
-</div>
-
-
-  
-
-
+    </div>

@@ -1,81 +1,71 @@
+<!doctype html>
+<html>
 
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Snippet - GoSnippets</title>
+    <!-- <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'> -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+    <script type='text/javascript' src=''></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type='text/javascript'
+        src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+    <script type='text/javascript'></script>
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav margin-left-auto">
+                    <li class="nav-item dropdown notification-ui show" (click)="disable()">
+                        <a class="nav-link dropdown-toggle notification-ui_icon" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bell"></i>
+                            <span *ngIf="notificationcount>0" class="unread-notification">
+                                <p class="margin-left text-white">{{notificationcount}}</p>
+                            </span>
+                        </a>
+                        <div *ngIf="newCategory==true" class="dropdown-menu notification-ui_dd show"
+                            aria-labelledby="navbarDropdown">
+                            <div class="notification-ui_dd-header">
+                                <h3 class="text-center">Notification</h3>
+                            </div>
+                            <div class="area">
+                                <div class="notification-ui_dd-content"
+                                    *ngFor="let notifications of noticications;let i = index"
+                                    [ngClass]="{'notifications-unread' : notifications.received==false}">
+                                    <div class="notification-list notification-list--unread">
+                                        <div class="notification-list_detail pointer"
+                                            (click)="[readNotification(i,notifications.id)]">
+                                            <p><b>{{notifications.notificationStatus}}</b> </p>
+                                            <p><small>{{notifications.time}}</small></p>
+                                        </div>
 
-   <!doctype html>
-   <html>
-       <head>
-           <meta charset='utf-8'>
-           <meta name='viewport' content='width=device-width, initial-scale=1'>
-           <title>Snippet - GoSnippets</title>
-           <!-- <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'> -->
-           <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
-           <script type='text/javascript' src=''></script>
-           <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
-           <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
-           <script type='text/javascript'></script>
-       </head>
-     
-       <header>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<div class="container">
-<a class="navbar-brand" href="#">Navbar</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-
-<div class="navbar-collapse" id="navbarSupportedContent">
-<ul class="navbar-nav margin-left-auto">
-  
-  <li class="nav-item dropdown notification-ui show" (click)="disable()">
-    <a class="nav-link dropdown-toggle notification-ui_icon"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fa fa-bell"></i>
-        <span *ngIf="notificationcount>0" class="unread-notification"><p class="margin-left text-white">{{notificationcount}}</p></span>
-    </a>
-    <div *ngIf="newCategory==true" class="dropdown-menu notification-ui_dd show" aria-labelledby="navbarDropdown">
-        <div class="notification-ui_dd-header">
-            <h3 class="text-center">Notification</h3>
-        </div>
-        <div class="area">
-          <div class="notification-ui_dd-content" *ngFor="let notifications of noticications;let i = index" [ngClass]="{'notifications-unread' : notifications.received==false}">
-            <div   class="notification-list notification-list--unread">
-                <div class="notification-list_detail pointer"  (click)="[readNotification(i,notifications.id)]" >
-                    <p><b>{{notifications.notificationStatus}}</b> </p>
-                    <p><small>{{notifications.time}}</small></p>
-                </div>
-               
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notification-ui_dd-footer">
+                                <a href="#!" class="viewall-button btn btn-success btn-block">View All</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/home">{{user}}</a> </li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/home">Home</a> </li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/details">Pending</a> </li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/approved">Approved</a> </li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/discarded">Discarded</a> </li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/orders">Orders</a> </li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/chat">chat</a> </li>
+                </ul>
             </div>
         </div>
-        </div>
-       
-        <div class="notification-ui_dd-footer">
-            <a href="#!" class="viewall-button btn btn-success btn-block">View All</a>
-        </div>
-    </div>
-  </li>
-
-<li class="nav-item"> <a class="nav-link" routerLink="/home" >{{user}}</a> </li>
-<li class="nav-item"> <a class="nav-link" routerLink="/home" >Home</a> </li>
-<li class="nav-item"> <a class="nav-link" routerLink="/details" >Pending</a> </li>
-<li class="nav-item"> <a class="nav-link" routerLink="/approved" >Approved</a> </li>
-<li class="nav-item"> <a class="nav-link" routerLink="/discarded" >Discarded</a> </li>
-<li class="nav-item"> <a class="nav-link" routerLink="/orders" >Orders</a> </li>
-<li class="nav-item"> <a class="nav-link" routerLink="/chat" >chat</a> </li>
-
-
-
-
-
-
-
-</ul>
-</div>
-
-
-</div>
-</nav>
+    </nav>
 </header>
-    
-   </html>
 
-
-
-
+</html>

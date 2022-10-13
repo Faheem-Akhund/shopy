@@ -1,51 +1,44 @@
 <app-header></app-header>
 <!-- <div  *ngFor="let items of object">
-    
     <h1>{{items.status ?? ''}}</h1>
     <h1>{{items.id ?? ''}}</h1>
     <h1>{{items.product?.price}}</h1>
     <h1>{{items.product?.productName ?? 'N/a'}}</h1>
 </div> -->
-
-
-    <!-- <div class="card"  *ngFor="let items of object">
+<!-- <div class="card"  *ngFor="let items of object">
         <img src={{items.product?.imgsrc}} alt="Denim Jeans" style="width:100%">
         <h1>{{items.product?.productName ?? 'N/a'}}</h1>
         <h1>{{items.id ?? 'N/a'}}</h1>
         <h1>{{items.status ?? 'N/a'}}</h1>
-     
         <p><button>Add to Cart</button></p>
       </div> -->
-
-
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-              <table class="table table-image">
-                <thead>
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Price</th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let items of object">
-                  <tr>
-                    <th scope="row">{{items.id ?? 'N/a'}}</th>
-                    <td class="w-25">
-                        <img src={{items.product?.imgsrc}} class="img-fluid img-thumbnail sizeimg" alt="Sheep">
-                    </td>
-                    <td>{{items.product?.productName ?? 'N/a'}}</td>
-                    <td>{{items.status ?? 'N/a'}}</td>
-                    <td>{{items.price?? 'N/a'}}</td>
-                   <!-- <pre>{{items |json }} </pre> -->
-                  </tr>
-                </tbody>
-              </table>   
-          </div>
-        </div>
-      </div>
-
-
+      
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-image">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let items of object">
+          <tr>
+            <th scope="row">{{items.id ?? 'N/a'}}</th>
+            <td class="w-25">
+              <img src={{items.product?.imgsrc}} class="img-fluid img-thumbnail sizeimg" alt="Sheep">
+            </td>
+            <td>{{items.product?.productName ?? 'N/a'}}</td>
+            <td>{{items.status ?? 'N/a'}}</td>
+            <td>{{items.price?? 'N/a'}}</td>
+            <!-- <pre>{{items |json }} </pre> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

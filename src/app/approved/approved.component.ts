@@ -26,15 +26,12 @@ export class ApprovedComponent implements OnInit {
   ngOnInit(): void {
     this.fix();
   }
-
   disable() {
     this.newAddress = !this.newAddress
   }
-
   public onImageUpload(event: any) {
     this.uploadedImage = event.target.files[0];
   }
-
   imageUploadAction() {
     if (this.newAddress == true) {
       this.addressId = '';
@@ -64,7 +61,6 @@ export class ApprovedComponent implements OnInit {
     });
 
   }
-
   fix() {
     this.auth.getUserDetails('cart/approved').toPromise().then(res => {
       if (res.code == 1) {
@@ -81,15 +77,9 @@ interface AuthModel {
   readonly id: string | number | null;
   status: string | null;
   paymentStatus: string | null;
-
-
   product: { productName: string, price: string | null | number, imgsrc: string } | null;
 }
-
-
-
 interface ADDRESSES {
-  
   id: string;
   city: string;
   town: string;

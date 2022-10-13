@@ -22,7 +22,6 @@ export class MovieComponent implements OnInit {
   users: UserList[] = []
   showMessages: MessageBean[] = []
   messageOBJ = {} as MSG;
-  // boxOBJ: BOX = { sender: "", msgList: [] };
   self = localStorage.getItem('user') || "";
   chatWith = ""
   newMessage = "";
@@ -33,15 +32,11 @@ export class MovieComponent implements OnInit {
   private stompClient: any;
 
   constructor(private httpClient: HttpClient, private auth: AuthService, private modalService: NgbModal) { }
-
-
-
   ngOnInit() {
     this.connect();
     this.getAllUsersListForChat();
     this.countMessage();
   }
-
   getAllUsersListForChat() {
     this.auth.OpenAPIGet('users').toPromise().then(res => {
       if (res.code == 0) {
@@ -49,9 +44,8 @@ export class MovieComponent implements OnInit {
       }
     });
   }
-
   connect() {
-    const socket = new SockJS(AUTH_API+'testchat');
+    const socket = new SockJS(AUTH_API + 'testchat');
     this.stompClient = Stomp.over(socket);
     const _this = this;
     this.stompClient.connect({}, function (frame: any) {
@@ -73,8 +67,6 @@ export class MovieComponent implements OnInit {
       });
     });
   }
-
-
   fire(receiver: string) {
     this.users.forEach(function (user) {
       if (user.userName === receiver) {
@@ -83,8 +75,6 @@ export class MovieComponent implements OnInit {
     });
     this.chatWith = receiver;
   }
-
-
   sendMessage() {
     this.messageBean.message = this.newMessage;
     this.messageBean.sender = this.self;
@@ -122,42 +112,30 @@ export class MovieComponent implements OnInit {
     });
   }
 }
-
-
 export interface MessageBean {
   id: number,
   message: string
 }
-
-
 export interface Receiver {
   body: BODY
 }
-
 export interface BODY {
   sender: string,
   message: string
 }
-
-
-
 export interface UserList {
   id: number,
   userName: string
   noOfMessages: number
 }
-
 export interface MSG {
   message: string
   of: string
 }
-
-
 export interface BOX {
   sender: string;
   msgList: Array<Point>
 }
-
 class Point {
   message = "";
   of = "";
