@@ -6,11 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { GlobalConstants } from '../services/global/global.service';
-
-
-
 const AUTH_API = GlobalConstants.socketURL
-
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -30,7 +26,6 @@ export class MovieComponent implements OnInit {
     message: "",
   };
   private stompClient: any;
-
   constructor(private httpClient: HttpClient, private auth: AuthService, private modalService: NgbModal) { }
   ngOnInit() {
     this.connect();
