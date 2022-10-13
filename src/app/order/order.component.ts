@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '../services/auth.service';
+import { OrderService } from '../services/orders/order.service';
 
 @Component({
   selector: 'app-order',
@@ -10,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class OrderComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient,private auth: AuthService,private modalService: NgbModal) { }
+  constructor(private httpClient: HttpClient,private auth: OrderService,private modalService: NgbModal) { }
   ibftrequests:IBFT[]=[]
   ngOnInit(): void {
     this.viewImage()

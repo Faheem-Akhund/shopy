@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieComponent } from '../movie/movie.component';
 import { AuthService } from '../services/auth.service';
+import { NotificationsService } from '../services/notification/notifications.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 export class HeaderComponent implements OnInit {
 
   user=localStorage.getItem('user')
-  constructor(private auth: AuthService) { }
+  constructor(private auth: NotificationsService) { }
   showNotification=true;
   newCategory=false;
   noticications:NOTIFICATIONS[]=[]

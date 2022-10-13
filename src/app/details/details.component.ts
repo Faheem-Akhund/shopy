@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { DetailService } from '../services/details/detail.service';
 
 @Component({
   selector: 'app-details',
@@ -9,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: DetailService, private router: Router) { }
 
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { HomeService } from '../services/home/home.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: HomeService, private router: Router) { }
   cartobject: { id: string } = {
     id: ""
   }

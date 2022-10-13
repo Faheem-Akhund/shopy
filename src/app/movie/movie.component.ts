@@ -5,6 +5,11 @@ import * as SockJS from 'sockjs-client'
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { GlobalConstants } from '../services/global/global.service';
+
+
+
+const AUTH_API = GlobalConstants.socketURL
 
 @Component({
   selector: 'app-movie',
@@ -28,7 +33,7 @@ export class MovieComponent implements OnInit {
   private stompClient: any;
 
   constructor(private httpClient: HttpClient, private auth: AuthService, private modalService: NgbModal) { }
-  
+
 
 
   ngOnInit() {
@@ -38,7 +43,7 @@ export class MovieComponent implements OnInit {
   }
 
   getAllUsersListForChat() {
-    this.auth.getUserDetails('users').toPromise().then(res => {
+    this.auth.OpenAPIGet('users').toPromise().then(res => {
       if (res.code == 0) {
         this.users = res.object;
       }
@@ -46,7 +51,7 @@ export class MovieComponent implements OnInit {
   }
 
   connect() {
-    const socket = new SockJS('http://192.168.10.171:8080/testchat');
+    const socket = new SockJS(AUTH_API+'testchat');
     this.stompClient = Stomp.over(socket);
     const _this = this;
     this.stompClient.connect({}, function (frame: any) {

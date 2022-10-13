@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { LoginService } from '../services/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,14 +14,24 @@ export class LoginComponent implements OnInit {
   password = "";
   errorpasswordMsg = "";
   errorusernameMsg = "";
+  IP=""
 
-   constructor(private auth: AuthService, private router: Router) { }
+   constructor(private auth: LoginService, private router: Router) { }
 
 
   ngOnInit(): void {
+    
   }
+
+
+
+setUrl():void{
+   localStorage.setItem('api',this.IP)
+}
+
   
   login(signIn:boolean) {
+
 
     if (this.username.trim().length === 0 && this.password.trim().length === 0 ) {
       this.errorusernameMsg = "Username is required";

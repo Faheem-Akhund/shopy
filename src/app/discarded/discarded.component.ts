@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { DiscardedService } from '../services/discarded/discarded.service';
 
 @Component({
   selector: 'app-discarded',
@@ -9,19 +10,15 @@ import { AuthService } from '../services/auth.service';
 })
 export class DiscardedComponent implements OnInit {
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: DiscardedService, private router: Router) { }
 
   object: AuthModel[] = [];
   ngOnInit(): void {
-    this.fix();
+    this.getDiscardedItems();
   }
-  fix() {
+  getDiscardedItems() {
  
-    this.auth.getUserDetails('cart/discarded').toPromise().then(res => {
-
-
-      console.log(res.object.cart)
-
+    this.auth.getDiscardedItems().toPromise().then(res => {
       if(res.code==1)
       {
         this.object = res.object;
