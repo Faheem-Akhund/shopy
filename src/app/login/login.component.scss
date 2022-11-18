@@ -64,3 +64,27 @@ label {
   color: red;
   position: fixed;
 }
+@media (max-width: 400px) {
+  .background-color {
+    background-color: #a52c2c;
+  }
+  .login-form {
+    color: black;
+    width: 395px;
+    height: inherit;
+    padding: 30px;
+    padding-top: 10px;
+    background-color: #fff;
+    border-radius: 0px;
+    position: inherit;
+    bottom: 70px;
+    right: 140px;
+    box-shadow: 5px 5px 20px #383838;
+}
+.film{
+  display: none;
+}
+.mobile{
+  display :none;
+}
+ }

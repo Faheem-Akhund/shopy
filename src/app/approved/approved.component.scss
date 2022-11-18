@@ -1,6 +1,6 @@
 .sizeimg {
-
-   max-width: 10%;
+   width: 59px;
+ 
 }
 .webkit {
    width: -webkit-fill-available;
@@ -18,3 +18,18 @@
 .labeladdresscity {
    padding-left: 13px;
 }
+
+
+
+
+@media (max-width: 400px) {
+.btn{
+   font-size: small;
+   padding: 9px;
+   
+}
+.hide-mobile
+{
+   display: none;
+}
+   }

@@ -6,7 +6,7 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Image</th>
+            <th scope="col" class="hide-mobile">Image</th>
             <th scope="col">Name</th>
             <th scope="col">Status</th>
             <th scope="col">Price</th>
@@ -16,7 +16,7 @@
         <tbody *ngFor="let items of object">
           <tr>
             <th scope="row">{{items.id ?? 'N/a'}}</th>
-            <td class="w-25">
+            <td class="hide-mobile">
               <img src={{items.product?.imgsrc}} class="img-fluid img-thumbnail sizeimg" alt="Sheep">
             </td>
             <td>{{items.product?.productName ?? 'N/a'}}</td>
@@ -34,14 +34,17 @@
             </td>
             <td>
             </td>
-            <td>
+            <td class="hide-mobile">
             </td>
             <th>
               {{total}} Rs
             </th>
             <td>
-              <button *ngIf="newCategory==true" type="button" class="btn btn-primary"
+              <small>
+                <button *ngIf="newCategory==true" type="button" class="btn btn-primary"
                 (click)="open(content)">PURCHASE</button>
+              </small>
+       
             </td>
           </tr>
         </tbody>

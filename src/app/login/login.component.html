@@ -1,8 +1,10 @@
 <div class="background-color">
     <div class="login-container">
         <img class="film" src="assets/images/film.png" alt="" />
-        <input type="text" [(ngModel)]="IP" />
-        <button class="btn-primary" (click)="setUrl()">setUrl</button>
+        <div class="mobile">
+            <input type="text" [(ngModel)]="IP" />
+            <button class="btn-primary" (click)="setUrl()">setUrl</button>
+        </div>
         <div class="login-form">
             <h1 class="login-head">Login</h1>
             <div class="form-group">

@@ -16,7 +16,7 @@ export class DetailsComponent implements OnInit {
     this.fix();
   }
   fix() {
-    this.auth.getUserDetails('pending').toPromise().then(res => {
+    this.auth.getUserDetails('pendingcart').toPromise().then(res => {
       if (res.code == 1) {
         this.object = res.object;
       }

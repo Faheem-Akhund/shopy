@@ -14,14 +14,21 @@
     <script type='text/javascript'></script>
 </head>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-nav">
         <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <!-- <a class="nav-link" routerLink="/home">Home</a>  -->
+            <img class="film" src="assets/images/film.png" alt="" />
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                (click)="openMenu=!openMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse" id="navbarSupportedContent">
+
+
+
+            <div class="navbar-collapse" class="mob-view" id="navbarSupportedContent" [class.d-block]="openMenu">
                 <ul class="navbar-nav margin-left-auto">
                     <li class="nav-item dropdown notification-ui show" (click)="disable()">
                         <a class="nav-link dropdown-toggle notification-ui_icon" id="navbarDropdown" role="button"
@@ -37,7 +44,7 @@
                                 <h3 class="text-center">Notification</h3>
                             </div>
                             <div class="area">
-                                <div class="notification-ui_dd-content"
+                                <div class="notification-ui_dd-content notification-size"
                                     *ngFor="let notifications of noticications;let i = index"
                                     [ngClass]="{'notifications-unread' : notifications.received==false}">
                                     <div class="notification-list notification-list--unread">
@@ -55,13 +62,15 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" routerLink="/home">{{user}}</a> </li>
-                    <li class="nav-item"> <a class="nav-link" routerLink="/home">Home</a> </li>
-                    <li class="nav-item"> <a class="nav-link" routerLink="/details">Pending</a> </li>
-                    <li class="nav-item"> <a class="nav-link" routerLink="/approved">Approved</a> </li>
-                    <li class="nav-item"> <a class="nav-link" routerLink="/discarded">Discarded</a> </li>
-                    <li class="nav-item"> <a class="nav-link" routerLink="/orders">Orders</a> </li>
-                    <li class="nav-item"> <a class="nav-link" routerLink="/chat">chat</a> </li>
+
+                    <li class="nav-item"> <a class="nav-link font-whear" routerLink="/home">{{user}}</a> </li>
+                    <li class="nav-item"> <a class="nav-link font-whear" routerLink="/home">Home</a> </li>
+                    <li class="nav-item"> <a class="nav-link font-whear" routerLink="/details">Pending</a> </li>
+                    <li class="nav-item"> <a class="nav-link font-whear" routerLink="/approved">Approved</a> </li>
+                    <li class="nav-item"> <a class="nav-link font-whear" routerLink="/discarded">Discarded</a> </li>
+                    <li class="nav-item"> <a class="nav-link font-whear" routerLink="/orders">Orders</a> </li>
+                    <li class="nav-item"> <a class="nav-link font-whear" routerLink="/chat">chat</a> </li>
+
                 </ul>
             </div>
         </div>

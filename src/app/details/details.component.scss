@@ -7,4 +7,12 @@
 }
 .sizeimg {
   max-width: 10%;
+
 }
+
+@media (max-width: 400px) {
+  .sizeimg {
+   
+    max-width: 70%;
+  }
+     }

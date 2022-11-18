@@ -10,6 +10,8 @@ import { NotificationsService } from '../services/notification/notifications.ser
 })
 export class HeaderComponent implements OnInit {
 
+  openMenu: boolean = false;
+
   user = localStorage.getItem('user')
   constructor(private auth: NotificationsService) { }
   showNotification = true;

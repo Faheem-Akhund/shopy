@@ -1,9 +1,11 @@
 .notification-ui a:after {
     display: none;
 }
+
 .notification-ui_icon {
     position: relative;
 }
+
 .notification-ui_icon .unread-notification {
     display: inline-block;
     height: 21px;
@@ -14,6 +16,10 @@
     top: 7px;
     left: 12px;
 }
+.bg-nav {
+    --bs-bg-opacity: 1;
+    background-color: rebeccapurple;
+}
 .notification-ui_dd {
     padding: 0;
     border-radius: 10px;
@@ -21,7 +27,13 @@
     box-shadow: 0 5px 20px -3px rgba(0, 0, 0, 0.16);
     border: 0;
     max-width: 400px;
+
+    position: absolute;
+    top: 50px;
+    right: -177px;
+    
 }
+
 .notification-ui_dd:after {
     content: "";
     position: absolute;
@@ -37,13 +49,16 @@
     border-bottom: 1px solid #ddd;
     padding: 15px;
 }
+
 .notification-ui_dd .notification-ui_dd-header h3 {
     margin-bottom: 0;
 }
+
 .notification-ui_dd .notification-ui_dd-content {
     max-height: 500px;
     overflow: auto;
 }
+
 .notification-list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -55,6 +70,7 @@
     margin: 0 25px;
     border-bottom: 1px solid #ddd;
 }
+
 .notification-list--unread {
     position: relative;
 }
@@ -67,32 +83,92 @@
     height: calc(100% + 1px);
     border-left: 2px solid #29B6F6;
 }
+
 .notification-list .notification-list_img img {
     height: 48px;
     width: 48px;
     border-radius: 50px;
     margin-right: 20px;
 }
+
 .notification-list .notification-list_detail p {
     margin-bottom: 5px;
     line-height: 1.2;
 }
+
 .notification-list .notification-list_feature-img img {
     height: 48px;
     width: 48px;
     border-radius: 5px;
     margin-left: 20px;
 }
+
 .area {
     overflow: auto;
     max-height: 360px;
 }
+
 .viewall-button {
     width: -webkit-fill-available;
 }
+
 .margin-left-auto {
     margin-left: auto;
 }
+
 .margin-left {
     margin-left: 4px;
+}
+.film{
+    width: 151px;
+}
+
+.notification-size
+{
+   width: max-content;
+  
+}
+@media (max-width: 400px) {
+
+    .notification-ui_dd {
+        padding: 0;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px -3px rgb(0 0 0 / 16%);
+        border: 0;
+        max-width: 400px;
+        position: absolute;
+        top: 40px;
+        right: 106px;
+    }
+
+    .notification-size
+{
+   width: auto;
+  
+}
+.mob-view{
+        
+    
+        display :none;
+
+
+        flex-basis: 100%;
+        flex-grow: 1;
+        align-items: center;
+        position: absolute;
+        width: 14em;
+        top: 56px;
+        padding: 19px;
+        /* left: 130px; */
+        right: 20px;
+        /* background: violet; */
+        background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
+        z-index: 1;
+    
+}
+
+}
+
+.font-whear{
+    color: wheat;
 }

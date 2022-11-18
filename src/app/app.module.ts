@@ -15,6 +15,8 @@ import { DiscardedComponent } from './discarded/discarded.component';
 import { OrderComponent } from './order/order.component';
 import { FooterComponent } from './footer/footer.component';
 import { ChatComponent } from './chat/chat.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -29,14 +31,20 @@ import { ChatComponent } from './chat/chat.component';
     OrderComponent,
     FooterComponent,
     ChatComponent
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-   
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -158,3 +158,21 @@
   border: 1px solid #E06C9F;
   color: #E06C9F;
 }
+
+
+
+@media (max-width: 400px) {
+
+.sidebar {
+  /* margin: 0; */
+  /* padding: 0; */
+  width: auto;
+  /* background-color: #f1f1f1; */
+   position: inherit; 
+  height: 100%;
+  overflow: auto;
+}
+.itemscheck {
+  margin-left: calc(0 * var(--bs-gutter-x));
+}
+}
